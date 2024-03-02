@@ -27,7 +27,7 @@ function createTableHeader(tableReference, columnsArray) {
   const tableHeaderReference =
     tableReference.querySelector("thead") ?? createTheadElement(tableReference);
   const headerRow = document.createElement("tr");
-  ["bg-blue-900", "text-slate-200", "sticky", "top-0"].forEach((cssClass) =>
+  ["bg-cyan-600", "text-slate-200", "sticky", "top-0"].forEach((cssClass) =>
     headerRow.classList.add(cssClass)
   );
   for (const tableColumnObject of columnsArray) {

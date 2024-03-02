@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora de Investimentos</title>
+    <title 
+    class="bg-cover bg-center antialiased">Calculadora de Investimentos</title>
   </head>
-  <body class="h-[100dvh] grid gap-2 grid-cols-3 grid-rows-2">
-    <aside class="bg-emerald-300 row-span-2 flex flex-col justify-between py-5 px-2">
-      <h1 class="text-2xl font-bold px-6 py-2">Calculadora de Investimentos</h1>
+  <body class=" bg-blue-950 h-[100dvh] grid gap-2 grid-cols-3 grid-rows-2 mx-0">
+    <aside
+    class="bg-center bg-gradient-to-r from-cyan-500 to-blue-950 relative row-span-2 flex flex-col justify-between py-5 px-2">
+      <h1 class="text-3xl font-bold px-6 absolute py-2 z-3 opacity-0">Calculadora de Investimentos</h1>
+      <h1 class="text-4xl font-bold px-6 py-2 z-1 opacity-90 mt-6 bg-gradient-to-r from-cyan-100 via-cyan-500 to-blue-950 inline-block text-transparent bg-clip-text">Calculadora de Investimentos</h1>
       <form id="investment-form" class="w-full">
 
       </div>  
@@ -43,7 +46,7 @@
             <select 
             id="time-amount-period"
             name="time-amount-period"
-            class="w-1/3 border-l-2 rounded-r-lg text-center border-emerald-600 hover:bg-emerald-950 hover:text-slate-200" >
+            class="w-1/3 border-l-2 rounded-r-lg text-center border-cyan-600 hover:bg-cyan-950 hover:text-slate-200 transition ease-in-out duration-250" >
               <option  value="monthly">Mensal</option>
               <option  value="yearly">Anual</option>
             </select>
@@ -56,7 +59,7 @@
             <input value="%" class="w-1/6 text-center rounded-l-lg" type="text" disabled>
             <input required type="text" placeholder="0" class="px-2 w-1/2" id="return-rate" name="return-rate" >
             <select 
-            class="w-1/3 border-l-2 rounded-r-lg text-center border-emerald-600 hover:bg-emerald-950 hover:text-slate-200" 
+            class="w-1/3 border-l-2 rounded-r-lg text-center border-cyan-600 hover:bg-cyan-950 hover:text-slate-200 transition ease-in-out duration-250" 
             id="evaluation-period"
             name="evaluation-period">
               <option  value="monthly">Mensal</option>
@@ -78,26 +81,29 @@
 
       </form>
       <div class="flex h-12 px-6 my-8 w-full gap-2">
-          <button class="w-1/2 rounded-lg bg-emerald-950 text-slate-200 hover:bg-emerald-800" 
+          <button class="w-1/2 rounded-lg bg-cyan-950 text-slate-200 hover:bg-cyan-800 transition ease-in-out duration-250" 
           form="investment-form" id="calculate-results" type="submit">Calcular</button>
-          <button id="clear-form" class="w-1/2 rounded-lg hover:bg-emerald-500">Limpar</button>
+          <button id="clear-form" class="w-1/2 rounded-lg hover:bg-cyan-500 transition ease-in-out duration-250">Limpar</button>
         </div>
     </aside>
-    <main class="row-span-2 col-span-2 relative">
-      <button id="slide-arrow-previous" class="absolute top-0 bottom-0 text-5xl cursor-pointer bg-slate-200 opacity-50 w-8 hover:opacity-100 focus:opacity-100">&#8249;</button>
-      <button id="slide-arrow-next" class="absolute top-0 bottom-0 right-0 text-5xl cursor-pointer bg-slate-200 opacity-50 w-10 focus:opacity-100">&#8250;</button>
+    <main style="background-image: url(https://4kwallpapers.com/images/wallpapers/layers-windows-11--11770.png)" 
+    class="bg-cover bg-no-repeat fixed row-span-2 col-span-2 relative bg-gradient-to-l from-green-300 to-cyan-50">
+      <button id="slide-arrow-previous" 
+      class="bg-cyan-600 absolute top-0 bottom-0 text-5xl cursor-pointer bg-cyan-600 opacity-50 w-8 hover:opacity-100 focus:opacity-100 transition ease-in-out duration-250">&#8249;</button>
+      <button id="slide-arrow-next" 
+      class="bg-cyan-600 absolute top-0 bottom-0 right-0 text-5xl cursor-pointer bg-cyan-600 opacity-50 w-8 hover:opacity-100 focus:opacity-100 transition ease-in-out duration-250">&#8250; </button>
       <div id="carousel" class="h-full w-full flex overflow-x-auto scroll-smooth">   
         <section class="h-full basis-full shrink-0" id="chart-container">
           <div class="h-[36%] flex flex-col items-center pb-10">
-            <p class="font-bold text-lg">Resultado Final</p>
+            <p id="header-results" class="opacity-0">Resultado Final</p>
             <canvas id="final-money-distribution"></canvas>
           </div>
           <div class="h-[56%] flex flex-col items-center">  
-            <p class="font-bold text-lg">Progressão</p>
+            <p id="header-progression" class="opacity-0">Progressão</p>
             <canvas id="progression"></canvas>
           </div>
         </section>
-        <section id="table-container" class="h-full overflow-y-auto basis-full shrink-0">
+        <section class="h-full overflow-y-auto basis-full shrink-0">
           <p class="font-bold text-lg text-center">Resultados Mensais</p>
           <table id="results-table" class="w-full max-h-full border border-separate">
             

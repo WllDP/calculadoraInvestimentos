@@ -50,6 +50,14 @@ function renderProgression(e) {
     return;
   }
   resetCharts();
+  const headerResults = document.getElementById("header-results");
+  const headerProgression = document.getElementById("header-progression");
+
+  headerResults.classList.remove("pageOut");
+  headerProgression.classList.remove("pageOut");
+  headerResults.classList.add("page");
+  headerProgression.classList.add("page");
+
   //const startingAmount = Number(form["starting-amount"].value);
   const startingAmount = Number(
     document.getElementById("starting-amount").value.replace(",", ".")
@@ -118,7 +126,7 @@ function renderProgression(e) {
             "rgba(153, 102, 255, 0.2)",
             "rgba(100, 99, 132, 0.2)",
             "rgba(169, 159, 64, 0.2)",
-            "rgba(119, 205, 86, 0.2)",
+            "rgba(199, 205, 86, 0.2)",
             "rgba(75, 192, 192, 0.2)",
             "rgba(201, 203, 207, 0.2)",
           ],
@@ -161,6 +169,8 @@ function renderProgression(e) {
       ],
     },
   });
+  const createOneTableOnly = document.getElementById("results-table");
+  createOneTableOnly.innerHTML = "";
   createTable(columnsArray, returnsArray, "results-table");
 }
 
@@ -187,11 +197,25 @@ function clearForm() {
 
   resetCharts();
 
+  const headerResults = document.getElementById("header-results");
+  const headerProgression = document.getElementById("header-progression");
+
+  headerResults.classList.remove("page");
+  headerProgression.classList.remove("page");
+  headerResults.classList.add("pageOut");
+  headerProgression.classList.add("pageOut");
+
   const errorInputContainers = document.querySelectorAll(".error");
   for (const errorInputContainer of errorInputContainers) {
     errorInputContainer.classList.remove("error");
     errorInputContainer.parentElement.querySelector("p").remove();
   }
+
+  function removeTable() {
+    const idRemoveTable = document.getElementById("results-table");
+    idRemoveTable.innerHTML = "";
+  }
+  removeTable();
 }
 
 function validateInput(e) {
