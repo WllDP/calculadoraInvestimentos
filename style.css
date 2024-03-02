@@ -10,6 +10,7 @@
      @apply border-2;
      @apply border-red-600; 
      @apply rounded-lg;
+     @apply ease-in duration-[150ms];
     };   
     .page {
     @apply font-bold;
@@ -19,6 +20,7 @@
     @apply ease-in duration-[350ms];
     @apply opacity-100;
     @apply text-4xl;
+    @apply bg-gradient-to-r from-cyan-700 to-indigo-600 text-transparent bg-clip-text  ;
     };
     .pageOut {
         @apply font-bold;
@@ -28,5 +30,6 @@
         @apply ease-in duration-300;
         @apply opacity-0;
         @apply text-2xl;
+        @apply bg-gradient-to-r from-cyan-700 to-indigo-600 text-transparent bg-clip-text  ;
         };
 }
